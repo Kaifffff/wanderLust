@@ -7,33 +7,48 @@
         <div class="col-8 offset-2">
             <br/><br/>
             <h3>ADD NEW LISTING</h3>
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings" novalidate class="needs-validation">
         <div class="mb-3">
             <belal for="title" class="form-lable" >Title</label>
-            <input placeholder="Enter title" class="form-control" type="text" name="listing[title]" value="<%= listing.title %>">
+            <input placeholder="Enter title" class="form-control" type="text" name="listing[title]" value="<%= listing.title %>" required/>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
         </div>
         
         <div class="mb-3">
             <belal for="description"  class="form-lable" >Description</label>
-            <textarea name="listing[description]" class="form-control" value="<%=listing.description  %>"></textarea>
+            <textarea name="listing[description]" class="form-control" value="<%=listing.description  %>" required></textarea>
+            <div class="invalid-feedback">
+                Please enter a short description.
+              </div>
         </div>
         <div class="mb-3">
             <belal for="image"  class="form-lable" >Image</label>
-            <input type="text" name="listing[image]" class="form-control" value="<%= listing.image %>">
+            <input type="text" name="listing[image]" class="form-control" value="<%= listing.image %>"/>
         </div>   
         <div class="row">
             <div class="mb-3 col-md-4">
                 <belal for="price"  class="form-lable" >Price</label>
-                <input placeholder="1200" type="number" name="listing[price]" class="form-control" value="<%= listing.price %>">
+                <input placeholder="1200"  name="listing[price]" class="form-control" value="<%= listing.price %>" required/>
+                <div class="invalid-feedback">
+                    Price should be valid
+                  </div>
             </div>
             <div class="mb-3 col-8">
                 <belal for="country"  class="form-lable" >Country</label>
-                <input placeholder="India" class="form-control" type="text"  name="listing[country]" value="<%= listing.country %>"></div>
+                <input placeholder="India" class="form-control" type="text"  name="listing[country]" value="<%= listing.country %>" required/></div>
+                <div class="invalid-feedback">
+                    Country should be valid
+                  </div>
             
         </div>
         <div class="mb-3">
             <belal for="location"  class="form-lable" >Location</label>
-            <input placeholder="Parbhani,Maharashtra" class="form-control" type="text" name="listing[location]"   value ="<%= listing.location %>">
+            <input placeholder="Parbhani,Maharashtra" class="form-control" type="text" name="listing[location]"   value ="<%= listing.location %>" required/>
+            <div class="invalid-feedback">
+                Location should be valid
+              </div>
         </div>
         
             <button class="btn btn-dark add-btn mb-3">ADD</button>
