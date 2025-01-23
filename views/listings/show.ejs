@@ -4,7 +4,7 @@
         <div class="col-8 offset-3">
             <h3><%= listing.title %></h3>
         </div>    
-    <div class="card col-6 offset-3 show-card">
+    <div class="card listing-card col-6 offset-3 show-card">
         <img
           src="<%= listing.image %>"
           class="card-img-top show-img"
@@ -32,15 +32,29 @@
       <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation ">
         <div class="mb-3 mt-3">
           <label for="rating" class="form-lable">Rating</label>
-          <input type="range" min="1" max="5" id="rating" name="Review[eating]"  class="form-range"/>
+          <input type="range" min="1" max="5" id="rating" name="review[rating]"  class="form-range"/>
         </div>
         <div  class="mb-3 mt-3">
           <label for="comment">Comments</label>
-          <textarea name="Review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+          <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
           <div class="invalid-feedback">Please Add some comments for review </div>
         </div>
         <button class="btn btn-outline-dark">Submit</button>
       </form>
+      <hr>
+
+      <p><b>All reviews</b></p>
+      <div class="row">
+        <% for(review of listing.reviews) { %>
+          <div class="card col-5 ms-3 mb-3 ">
+            <div class="card-body">
+              <h5 class="card-title"> jane doe</h5>
+              <p class="card-text"> <%= review.comment %></p>
+              <p class="card-text"> <%= review.rating %> star</p>
+            </div>
+          </div>
+          <% } %>
+      </div>
     </div>
  </div>
 </body>
