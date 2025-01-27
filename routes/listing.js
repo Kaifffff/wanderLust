@@ -50,6 +50,7 @@ router.post("/",
         }
     const newLIsting = new Listing(req.body.listing);
     await newLIsting.save();
+    req.flash("success","New Listing Created!");
     res.redirect('/listings');
 }));
 
